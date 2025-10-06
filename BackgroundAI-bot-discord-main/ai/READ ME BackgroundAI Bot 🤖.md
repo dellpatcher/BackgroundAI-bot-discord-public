@@ -62,7 +62,5 @@ This project is currently in **alpha**, so expect limited functionality and acti
 
 ## 🚀 Setup & Run
 
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/yourusername/BackgroundAI.git
-cd BackgroundAI
+
+
