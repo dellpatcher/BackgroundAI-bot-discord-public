@@ -1,16 +1,32 @@
+# =====================================================
 # BackgroundAI Bot 🤖
-
-**Version:** 0.1.0-alpha  
-A Discord bot that connects to a custom **PowerShell-based AI engine**.  
-This is an **alpha release** — expect bugs, limited features, and frequent updates.
-
----
-
-## ✨ Features
-- Slash command `/start` creates a dedicated `#ai` channel.  
-- Responds when mentioned inside the AI channel.  
-- Connects to a **PowerShell script** (`BackgroundAI_Bot.ps1`) to process questions.  
-- Replies in **Discord embeds** for cleaner formatting.  
-- Splits long responses into safe chunks (under Discord’s 2000-character limit).  
-- Per-server question limit (`MAX_QUESTIONS_PER_SERVER`, default 10).  
-- Logging system for better debugging.  
+# Version: 0.2.0-alpha
+# =====================================================
+#
+# A multi-model Discord AI bot that connects to a custom
+# PowerShell-based engine powered by Ollama.
+#
+# 🧠 Architecture Overview:
+# - Frontend: Discord bot (Python) handles messages and formatting.
+# - Middleware: PowerShell orchestrator runs multiple AI models in parallel.
+# - Backend: Summarizer AI merges model outputs into one unified response.
+#
+# Effectively, this bot runs **3 AI models as one system**:
+#   1. LLaMA 2 (uncensored): reasoning and analysis
+#   2. Mistral OpenOrca: creative and conversational tone
+#   3. Mistral (summarizer): merges both into a clean final reply
+#
+# ✨ Key Features:
+# - Slash command `/start` creates a dedicated #ai channel per server.
+# - Mentions trigger NightshadeAI responses inside that channel.
+# - PowerShell backend (`BackgroundAI_Bot.ps1`) handles AI inference.
+# - Responses are cleaned, chunked, and formatted for Discord (≤2000 chars).
+# - Built-in question counter per server (default limit: 400).
+# - Cleans AI output (removes spinner chars, ANSI codes, non-printable text).
+# - Safe subprocess communication between Python and PowerShell.
+#
+# ⚠️ Status: Alpha — expect bugs, limited features, and frequent updates.
+#
+# Author: Reufes
+# Project: BackgroundAI
+# =====================================================
