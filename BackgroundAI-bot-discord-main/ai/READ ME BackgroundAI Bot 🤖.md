@@ -1,41 +1,68 @@
-# =====================================================
-# 🤖 BackgroundAI Bot
-# Version: 0.2.0-alpha
-# =====================================================
-#
-# 🧩 Description:
-# A multi-model Discord AI bot that connects to a custom
-# PowerShell-based AI engine powered by Ollama.
-#
-# ⚙️ Architecture:
-# 1️⃣ Frontend (Python / Discord.py)
-#     - Handles commands, mentions, and message formatting
-#     - Communicates with the PowerShell backend
-#
-# 2️⃣ Middleware (PowerShell Orchestrator)
-#     - Runs multiple AI models in parallel via Ollama
-#     - Cleans and merges model outputs
-#
-# 3️⃣ Backend (Summarizer AI)
-#     - Combines all model drafts into a unified, natural response
-#
-# 🧠 Active Models:
-#   • LLaMA2-Uncensored (7B) → Reasoning and analysis  
-#   • Mistral-OpenOrca (7B)  → Creative phrasing  
-#   • Mistral-OpenOrca (7B)  → Summarizer/final composer  
-#
-# ✨ Features:
-#   • `/start` command creates #ai channel per server  
-#   • Responds when mentioned inside #ai  
-#   • PowerShell backend (`BackgroundAI_Bot.ps1`) handles inference  
-#   • Responses cleaned and split to fit Discord’s 2000-char limit  
-#   • Removes spinners, ANSI codes, and non-printable characters  
-#   • Per-server question limit (default: 400)  
-#   • Logging-ready for debugging  
-#
-# ⚠️ Status:
-#   Alpha release — experimental, expect bugs and frequent updates.  
-#
-# 👤 Author: Reufes  
-# 🏷️ Project: BackgroundAI (NightshadeAI Framework)
-# =====================================================
+# 🤖 BackgroundAI Bot  
+**Version:** 0.2.0-alpha  
+
+---
+
+## 🧩 Overview
+**BackgroundAI** is a multi-model **AI wrapper** that connects a Discord bot (Python) to a PowerShell-based AI engine powered by **Ollama**.  
+It combines **three AI models** into one unified personality — **NightshadeAI** — by fusing reasoning, creativity, and summarization into a single response.
+
+This project is currently in **alpha**, so expect limited functionality and active development.
+
+---
+
+## ⚙️ Architecture
+
+### 1️⃣ Discord Frontend (Python)
+- Built with **discord.py**  
+- Handles messages, mentions, and `/start` command  
+- Sends user prompts to the PowerShell AI engine  
+- Cleans and splits long replies to fit Discord’s 2000-character limit  
+
+### 2️⃣ PowerShell AI Orchestrator
+- Receives the prompt from the Python bot  
+- Runs **multiple Ollama models** in sequence  
+- Cleans and merges their outputs into unified text  
+
+### 3️⃣ Summarizer Layer
+- A final model refines all drafts into one coherent, human-readable message  
+- Acts as the “editor” that defines NightshadeAI’s final tone and style  
+
+---
+
+## 🧠 Active Models
+| Role | Model | Purpose |
+|------|--------|----------|
+| Reasoning | **LLaMA2-Uncensored (7B)** | Analytical and logical thinking |
+| Conversational | **Mistral-OpenOrca (7B)** | Natural phrasing and creative tone |
+| Summarizer | **Mistral-OpenOrca (7B)** | Merges all responses into one unified answer |
+
+---
+
+## ✨ Features
+- `/start` command creates a dedicated `#ai` channel per server  
+- Mentions trigger NightshadeAI to respond  
+- PowerShell backend (`BackgroundAI_Bot.ps1`) manages model execution  
+- Cleans spinner characters, ANSI codes, and other artifacts  
+- Per-server question limit (default: 400)  
+- Logging-ready for debugging and monitoring  
+
+---
+
+## 🧰 Requirements
+- **Windows 10/11** with PowerShell 5.1+  
+- **Python 3.9+**  
+- **Discord.py** library  
+- **Ollama** installed and added to your system PATH  
+- Ollama models:
+  - `llama2-uncensored:7b`
+  - `mistral-openorca:7b`
+
+---
+
+## 🚀 Setup & Run
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/yourusername/BackgroundAI.git
+cd BackgroundAI
